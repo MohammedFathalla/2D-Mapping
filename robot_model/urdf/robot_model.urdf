@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+
+<robot name="myrobot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="base_footprint"> </link>
+
+<link name="robot_base">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="40.0"/>
+        <inertia ixx="0.5" ixy="0.0" ixz="0.0" 
+                 iyy="1.0" iyz="0.0" 
+                 izz="0.1"/>
+    </inertial>
+
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <box size="0.7 0.5 0.1"/>
+        </geometry>
+        <material name="">
+            <color rgba="1.0 1.0 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <box size="0.7 0.5 0.1"/>
+        </geometry>
+    </collision>
+</link>
+
+<joint name="base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+    <parent link="base_footprint"/>
+    <child link="robot_base"/>
+    <axis xyz="0.0 0.0 0.0"/>
+</joint>
+
+
+ <link name="front_right_wheel">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="5.0"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" 
+                 iyy="1.0" iyz="0.0" 
+                 izz="1.0"/>
+    </inertial>
+
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+        <material name="">
+            <color rgba="0.0 0.0 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+    </collision>
+
+ </link>
+
+
+
+<link name="front_left_wheel">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="5.0"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" 
+                 iyy="1.0" iyz="0.0" 
+                 izz="1.0"/>
+    </inertial>
+
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+        <material name="">
+            <color rgba="0.0 0.0 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+    </collision>
+
+</link>
+
+
+
+<link name="back_right_wheel">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="5.0"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" 
+                 iyy="1.0" iyz="0.0" 
+                 izz="1.0"/>
+    </inertial>
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+        <material name="">
+            <color rgba="0.0 0.0 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+    </collision>
+</link>
+
+
+
+<link name="back_left_wheel">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="5.0"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" 
+                 iyy="1.0" iyz="0.0" 
+                 izz="1.0"/>
+    </inertial>
+    <visual name="">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+        <material name="">
+            <color rgba="0.0 0.0 1.0 1.0"/>
+            <texture filename=""/>
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+            <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+    </collision>
+</link>
+
+
+ <joint name="front_left_joint" type="continuous">
+    <origin xyz="0.2 0.275 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="robot_base"/>
+    <child link="front_left_wheel"/>
+    <axis xyz="0.0 0.0 1.0"/>
+ </joint>
+
+
+ <joint name="back_right_joint" type="continuous">
+    <origin xyz="-0.2 -0.275 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="robot_base"/>
+    <child link="back_right_wheel"/>
+    <axis xyz="0.0 0.0 1.0"/>
+ </joint>
+
+
+ <joint name="back_left_joint" type="continuous">
+    <origin xyz="-0.2 0.275 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="robot_base"/>
+    <child link="back_left_wheel"/>
+    <axis xyz="0.0 0.0 1.0"/>
+ </joint>
+
+
+
+ <joint name="front_right_joint" type="continuous">
+    <origin xyz="0.2 -0.275 0.0" rpy="1.57 0.0 0.0"/>
+    <parent link="robot_base"/>
+    <child link="front_right_wheel"/>
+    <axis xyz="0.0 0.0 1.0"/>
+ </joint>
+
+ 
+<!-- Gazebo plugin  -->
+ 
+ <gazebo>
+    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+     <alwaysOn>1</alwaysOn> 
+      <updateRate>20.0</updateRate>
+      <robotNamespace>/</robotNamespace>
+      <leftFrontJoint>front_left_joint</leftFrontJoint>
+      <rightFrontJoint>front_right_joint</rightFrontJoint>
+      <leftRearJoint>back_left_joint</leftRearJoint>
+      <rightRearJoint>back_right_joint</rightRearJoint>
+      <wheelSeparation>0.5</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <torque>20</torque>
+      <topicName>cmd_vel</topicName>
+      <broadcastTF>1</broadcastTF>
+    </plugin>
+  </gazebo>
+
+</robot>
